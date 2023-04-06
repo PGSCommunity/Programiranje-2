@@ -1,8 +1,35 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int najveci_stepen(int n) {
+    int n1(0);
+    while (n >= 2) {
+        n /= 2;
+        n1++;
+    }
+    return n1;
+}
 
+int main() {
+    int k,b;
+    cout << "Velicina niza:\n";
+    cin >> k;
+    int niz[k];
+    cout << "Unos niza:\n";
+    for(int i = 0; i < k; i++) {
+        cin >> niz[i];
+    }
+    cout << "Broj b:\n";
+    unos:cin >> b;
+    if(b > k) {
+        cout << "B je veci od velicine niza.\n";
+        goto unos;
+    }
+    int n(0);
+    for(int i = 0; i < b - 1; i++) {
+        n += niz[i];
+    }
+    cout << najveci_stepen(n);
     return 0;
 }
 /*
