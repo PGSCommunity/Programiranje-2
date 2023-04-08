@@ -2,9 +2,10 @@
 using namespace std;
 
 int main() {
-    int a,k;
+    int a, k;
     cout << "Velicina niza?\n";
     cin >> a;
+    
     int niz[a];
     cout << "Unesite elemente niza!\n";
     for(int i = 0; i < a; i++) {
@@ -22,14 +23,9 @@ int main() {
     }
 
     cout << "Unesite broj k!\n";
-    unos:cin >> k;
-    if(k > a) {
-        cout << "Broj je veci od velicine niza!\n";
-        goto unos;
-    }
+    cin >> k;
 
     float suma(0);
-
     int l(0), d = a - 1;
     while(l <= d) {
         int s = (l + d)/2;
@@ -44,8 +40,10 @@ int main() {
             l = s + 1;
         }
     }
-    cout << "Suma reciprocnih parnih brojeva manji od broja " << k << " je: " << suma;
-	return 0;
+
+    cout << "Suma reciprocnih parnih brojeva manjih od broja " << k << " je: " << suma;
+
+    return 0;
 }
 /*
 1.	Učitati A brojeva u niz, i broj k. Izračunati recipročnu vrijednost parnih brojeva manjih od broja k.
