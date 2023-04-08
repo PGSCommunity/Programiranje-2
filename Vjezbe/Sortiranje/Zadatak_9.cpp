@@ -50,7 +50,7 @@ int main() {
     }
     cout << endl;
     cout << "Sortirani neparni brojevi:\n";
-    for(int i = 0; i < br2; i++) {
+    for(int i = br2 - 1; i >= 0; i--) {
         cout << b[i] << " ";
     }
     return 0;
