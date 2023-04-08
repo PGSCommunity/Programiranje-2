@@ -16,8 +16,8 @@ int main() {
 
     cout << "Unesite broj a!\n";
     unos:cin >> a;
-    if(a > n) {
-        cout << "Broj ne moze biti veci od velicine niza!\n";
+    if(a > niz[n-1]) {
+        cout << "Broj ne moze biti veci od najveceg elementa niza!\n";
         goto unos;
     } 
 
