@@ -1,8 +1,16 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
-
+    string time;
+    cout << "Unesite vrijeme! (hh:ss):\n";
+    getline(cin, time);
+    
+    int minute = stoi(time.substr(0,2));
+    int sati = stoi(time.substr(3,5));
+    
+    cout << "Minuta proteklo od ponoci: " << (minute * 60) + sati;
     return 0;
 }
 /*
