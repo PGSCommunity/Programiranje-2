@@ -17,14 +17,14 @@ void sort(int m) {
             }
         }
     }
-    int tmin(m);
+    int tmax(0);
     cout << "Sortiran niz:\n";
     for(int i = 0; i < m; i++) {
         cout << niz[i] << " ";
-        if(tmin > niz[i]) tmin = niz[i];
+        if(tmax < niz[i] && niz[i] < m) tmax = niz[i];
     }
     cout << '\n';
-    cout << "Kub najmanjeg broja: " << pow(tmin, 3);
+    cout << "Kub prvog manjeg od ucitanog broja m: " << pow(tmax, 3);
 }
 
 int main() {
