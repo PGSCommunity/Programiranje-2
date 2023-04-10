@@ -1,8 +1,10 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 void sort(int m) {
     int niz[m];
+    cout << "Unesite clanove niza!\n";
     for(int i = 0; i < m; i++) {
         cin >> niz[i];
     }
@@ -22,11 +24,12 @@ void sort(int m) {
         if(tmin > niz[i]) tmin = niz[i];
     }
     cout << '\n';
-    cout << "Najmanji broj: " << tmin;
+    cout << "Kub najmanjeg broja: " << pow(tmin, 3);
 }
 
 int main() {
     int m;
+    cout << "Velicina niza?\n";
     cin >> m;
     sort(m);
     return 0;
