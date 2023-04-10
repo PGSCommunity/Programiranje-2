@@ -1,59 +1,73 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 struct SportskiKlub {
-    int br_igraca;
+    int brIgraca;
     string prezime;
     float zarada;
 };
 
+void zaradaVecaOdMilion(SportskiKlub sk[], int n) {
+    for(int i = 0; i < n; i++) {
+        if(sk[i].zarada > 1000000) cout << sk[i].prezime << " ";
+    }
+}
+
+void sortiranje(SportskiKlub sk[], int n) {
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n - 1 - i; j++) {
+            if(sk[j].brIgraca > sk[j + 1].brIgraca) {
+                int temp = sk[j + 1].brIgraca;
+                sk[j + 1].brIgraca = sk[j].brIgraca;
+                sk[j].brIgraca = temp;
+            }
+            if(sk[j].prezime > sk[j + 1].prezime) {
+                string temp = sk[j + 1].prezime;
+                sk[j + 1].prezime = sk[j].prezime;
+                sk[j].prezime = temp;
+            }
+            if(sk[j].zarada > sk[j + 1].zarada) {
+                float temp = sk[j + 1].zarada;
+                sk[j + 1].zarada = sk[j].zarada;
+                sk[j].zarada = temp;
+            }
+        }
+    }
+}
+
 int main() {
-    SportskiKlub igraci;
-    cout << "Broj igraca?\n";
-    cin >> igraci.br_igraca;
+    int n;
+    cout << "Koliko sportkih klubova?\n";
+    cin >> n;
+    SportskiKlub sk[n];
 
-    SportskiKlub sp[igraci.br_igraca];
-    for(int i = 0; i < igraci.br_igraca; i++) {
+    for(int i = 0; i < n; i++) {
+        cout << "Unesite broj " << i + 1 << ". igraca!\n";
+        cin >> sk[i].brIgraca;
         cout << "Unesite prezime " << i + 1 << ". igraca!\n";
-        cin >> sp[i].prezime;
+        cin >> sk[i].prezime;
         cout << "Unesite zaradu " << i + 1 << ". igraca!\n";
-        cin >> sp[i].zarada;
+        cin >> sk[i].zarada;
+        cout << "====================\n";
     }
 
-    for(int i = 0; i < igraci.br_igraca; i++) {
-        for(int j = 0; j < igraci.br_igraca - 1 - i; j++) {
-            if(sp[j].prezime > sp[j + 1].prezime) {
-                string temp = sp[j + 1].prezime;
-                sp[j + 1].prezime = sp[j].prezime;
-                sp[j].prezime = temp;
-            }
-        }
-    }
-    for(int i = 0; i < igraci.br_igraca; i++) {
-        for(int j = 0; j < igraci.br_igraca - 1 - i; j++) {
-            if(sp[j].zarada > sp[j + 1].zarada) {
-                float temp = sp[j + 1].zarada;
-                sp[j + 1].zarada = sp[j].zarada;
-                sp[j].zarada = temp;
-            }
-        }
-    }
+    cout << "Svi igraci cija je plata veca od milion dolara:\n";
+    zaradaVecaOdMilion(sk, n);
+    cout << endl << '\n';
 
-    cout << "Prezimena sortirana:\n";
-    for(int i = 0; i < igraci.br_igraca; i++) {
-        cout << sp[i].prezime << " ";
+    sortiranje(sk, n);
+
+    cout << "Sortirana struktura:\n";
+    for(int i = 0; i < n; i++) {
+        cout << sk[i].brIgraca << " ";
     }
     cout << '\n';
-    cout << "Zarada sortirana:\n";
-    for(int i = 0; i < igraci.br_igraca; i++) {
-        cout << sp[i].zarada << " ";
+    for(int i = 0; i < n; i++) {
+        cout << sk[i].prezime << " ";
     }
-
     cout << '\n';
-    cout << "Igraci cija je zarada veca od milion:\n";
-    for(int i = 0; i < igraci.br_igraca; i++) {
-        if(sp[i].zarada > 1000000) cout << sp[i].prezime << '\n';
+    for(int i = 0; i < n; i++) {
+        cout << sk[i].zarada << " ";
     }
     return 0;
 }
