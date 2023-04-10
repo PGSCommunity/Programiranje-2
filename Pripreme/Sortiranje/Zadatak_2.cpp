@@ -1,13 +1,14 @@
 #include <iostream>
 using namespace std;
 
-int tmax = 10;
-
 int main() {
-    int niz[tmax];
+    int niz[10];
     int i(0), br(0), s(0);
     int ar(0);
-    while(cin >> niz[i] && i < tmax) {
+
+    cout << "Unesite elemente niza!\n";
+    while(i < 10) {
+        cin >> niz[i];
         if(niz[i] == 0) break;
         s += niz[i];
         i++;
@@ -15,19 +16,18 @@ int main() {
         if(br == 10) break;
     }
     ar = s / br;
-    for(int i = 0; i < br; i++) {
-        if(niz[i] < ar) {
-            for(int j = 0; j < ar - 1 - i; j++) {
-                if(niz[j] > niz[j + 1]) {
-                    int temp = niz[j + 1];
-                    niz[j + 1] = niz[j];
-                    niz[j] = temp;
-                }
+    for(int i = 0; i < ar; i++) {
+        for(int j = 0; j < ar - 1 - i; j++) {
+            if(niz[j] > niz[j + 1]) {
+                int temp = niz[j + 1];
+                niz[j + 1] = niz[j];
+                niz[j] = temp;
             }
         }
     }
-    for(int i = 0; i < br; i++) {
-        if(niz[i] < ar) cout << niz[i] << " ";
+    cout << "Elementi niza manji od aritmeticka sredine niza sortirani:\n";
+    for(int i = 0; i < ar; i++) {
+        cout << niz[i] << " ";
     }
     return 0;
 }
