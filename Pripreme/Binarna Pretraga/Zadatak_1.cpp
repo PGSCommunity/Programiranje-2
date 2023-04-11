@@ -1,48 +1,51 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int main() {
     int a, k;
     cout << "Velicina niza?\n";
     cin >> a;
-    
+
     int niz[a];
     cout << "Unesite elemente niza!\n";
     for(int i = 0; i < a; i++) {
         cin >> niz[i];
     }
 
-    for(int i = 0; i < a; i++) {
-        for(int j = 0; j < a - 1 - i; j++) {
-            if(niz[j] > niz[j + 1]) {
-                int temp = niz[j + 1];
-                niz[j + 1] = niz[j];
-                niz[j] = temp;
-            }
-        }
-    }
+    sort(niz, niz + a);
 
     cout << "Unesite broj k!\n";
     cin >> k;
 
-    float suma(0);
+    int poz(0);
+    bool pronadjeno(false);
     int l(0), d = a - 1;
     while(l <= d) {
-        int s = (l + d)/2;
-        if(niz[s] < k && niz[s] % 2 == 0) {
-            suma += 1.0/niz[s];
-            l = s + 1;
+        int s = (l + d) / 2;
+        if(k == niz[s]) {
+            poz = s;
+            pronadjeno = true;
+            break;
         }
-        else if(niz[s] >= k) {
+        else if(k < niz[s]) {
             d = s - 1;
         }
         else {
             l = s + 1;
         }
     }
+    
+    if(pronadjeno) cout << "Broj se nalazi na poziciji: " << poz + 1 << '\n';
+    else cout << "Broj nije u nizu!\n";
 
-    cout << "Suma reciprocnih parnih brojeva manjih od broja " << k << " je: " << suma;
-
+    float suma(0);
+    for(int i = 0; i < poz + 1; i++) {
+        if(niz[i] % 2 == 0) {
+            suma += 1.0/niz[i];
+        }
+    }
+    cout << "Reciprocna vrijednost parnih brojeva manjeg od broja k: " << suma;
     return 0;
 }
 /*
