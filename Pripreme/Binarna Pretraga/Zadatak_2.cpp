@@ -3,50 +3,49 @@
 using namespace std;
 
 int main() {
-    int n,m;
+    int n, m;
     cout << "Velicina niza?\n";
     cin >> n;
+
     int niz[n];
     cout << "Unesite elemente niza!\n";
     for(int i = 0; i < n; i++) {
         cin >> niz[i];
     }
 
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n - 1 - i; j++) {
-            if(niz[j] > niz[j + 1]) {
-                int temp = niz[j + 1];
-                niz[j + 1] = niz[j];
-                niz[j] = temp;
-            }
-        }
-    }
-
     cout << "Unesite broj m!\n";
-    unos:cin >> m;
-    if(m > n) {
-        cout << "Broj veci od velicine niza!\n";
-        goto unos;
-    }
+    cin >> m;
 
+    int poz(0);
+    bool pronadjeno(false);
     int l(0), d = n - 1;
-    float p(1), suma(0);
     while(l <= d) {
         int s = (l + d) / 2;
-        if(niz[s] < m) {
-            p *= niz[s];
-            l = s + 1;
+        if(m == niz[s]) {
+            poz = s;
+            pronadjeno = true;
+            break;
         }
-        else if(niz[s] > m) {
-            suma += niz[s];
+        else if(m < niz[s]) {
             d = s - 1;
         }
         else {
             l = s + 1;
         }
     }
+
+    if(pronadjeno) cout << "Broj se nalazi na poziciji: " << poz + 1 << '\n';
+    else cout << "Broj nije u nizu!\n";
+
+    float s(0), p(1);
+    for(int i = 0; i < poz; i++) {
+        p *= niz[i];
+    }
+    for(int i = poz; i < n; i++) {
+        s += niz[i];
+    }
     cout << "Geometrijska sredina do broja m: " << pow(p, 1/n) << '\n';
-    cout << "Harmonijska sredina od broja m: " << n / suma;
+    cout << "Harmonijska sredina od broja m: " << n / s;
     return 0;
 }
 /*
