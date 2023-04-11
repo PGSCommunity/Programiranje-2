@@ -40,7 +40,7 @@ int main() {
     else cout << "Broj nije u nizu!\n";
 
     float suma(0);
-    for(int i = 0; i < poz + 1; i++) {
+    for(int i = 0; i < poz; i++) {
         if(niz[i] % 2 == 0) {
             suma += 1.0/niz[i];
         }
