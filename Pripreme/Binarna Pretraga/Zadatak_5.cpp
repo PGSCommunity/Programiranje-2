@@ -1,8 +1,60 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
-int main() {
+int najveci_stepen(int n) {
+    int br(0);
+    while(n >= 2) {
+        n /= 2;
+        br++;
+    }
+    return br;
+}
 
+int main() {
+    int k, b;
+    cout << "Velicina niza?\n";
+    cin >> k;
+
+    int niz[k];
+    cout << "Unesite elemente niza!\n";
+    for(int i = 0; i < k; i++) {
+        cin >> niz[i];
+    }
+
+    sort(niz, niz + k);
+
+    cout << "Unesite broj b!\n";
+    cin >> b;
+
+    int poz(0);
+    bool pronadjen(false);
+    int l(0), d = k - 1;
+    while(l <= d) {
+        int s = (l + d) / 2;
+        if(b == niz[s]) {
+            poz = s;
+            pronadjen = true;
+            break;
+        }
+        else if(b < niz[s]) {
+            d = s - 1;
+        }
+        else {
+            l = s + 1;
+        }
+    }
+
+    if(pronadjen) cout << "Broj se nalazi na poziciji: " << poz + 1 << '\n';
+    else cout << "Broj nije u nizu!\n";
+    cout << endl;
+
+    int n(0);
+    for(int i = 0; i < poz; i++) {
+        n += niz[i];
+    }
+    
+    cout << "Najveci stepen broja dva je: " << najveci_stepen(n);
     return 0;
 }
 /*
