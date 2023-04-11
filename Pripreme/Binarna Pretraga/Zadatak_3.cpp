@@ -5,38 +5,69 @@ int main() {
     int x, a, b;
     cout << "Velicina niza?\n";
     cin >> x;
+
     int niz[x];
     cout << "Unesite elemente niza!\n";
     for(int i = 0; i < x; i++) {
         cin >> niz[i];
     }
 
-    cout << "Unesite brojeve a i b!\n";
+    cout << "Unesite broj a i b!\n";
     unos:cin >> a >> b;
-    if(b < a) {
-        cout << "Necatan upis! Treba biti (a < b)!\n";
+    if(a > b) {
+        cout << "Netacan unos! (a < b):\n";
         goto unos;
     }
 
-    float suma(0), br(0);
+    int poz(0);
+    bool pronadjen(false);
     int l(0), d = x - 1;
     while(l <= d) {
         int s = (l + d) / 2;
-        if(niz[s] > a) {
-            suma += niz[s];
-            br++;
-            l = s + 1;
+        if(a == niz[s]) {
+            poz = s;
+            pronadjen = true;
+            break;
         }
-        else if(niz[s] < b) {
-            suma += niz[s];
-            br++;
+        else if(a < niz[s]) {
             d = s - 1;
         }
         else {
             l = s + 1;
         }
     }
-    cout << "Aritmeticka sredina izmedju brojeva a i b: " << suma / br;
+
+    if(pronadjen) cout << "Broj a se nalazi na poziciji: " << poz + 1 << '\n';
+    else cout << "Broj nije u nizu!\n";
+
+    int pos(0);
+    pronadjen = false;
+    l = 0, d = x - 1;
+    while(l <= d) {
+        int s = (l + d) / 2;
+        if(b == niz[s]) {
+            pos = s;
+            pronadjen = true;
+            break;
+        }
+        else if(b < niz[s]) {
+            d = s - 1;
+        }
+        else {
+            l = s + 1;
+        }
+    }
+
+    if(pronadjen) cout << "Broj b se nalazi na poziciji: " << pos + 1 << '\n';
+    else cout << "Broj nije u nizu!\n";
+
+    float s(0), br(0);
+    for(int i = poz; i < pos; i++) {
+        s += niz[i];
+        br++;
+    }
+
+    cout << "Aritmetika sredina brojeva izmedju pozicija a i b: " << s / br;
     return 0;
 }
 /*
