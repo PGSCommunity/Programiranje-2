@@ -1,7 +1,14 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main() {
+    int a;
+    cout << "Unesite stranicu a!\n";
+    cin >> a;
+
+    if(a > 10) cout << "Povrsina: " << 6 * pow(a, 2);
+    else cout << "Zapremina: " << abs(pow(a, 3));
     return 0;
 }
 /*
