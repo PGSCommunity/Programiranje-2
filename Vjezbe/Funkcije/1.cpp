@@ -1,8 +1,16 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int mojaFunkcija(int a) {
+    return a + 10;
+}
 
+int main() {
+    int x;
+    cout << "Unesite broj:\n";
+    cin >> x;
+
+    cout << mojaFunkcija(x);
     return 0;
 }
 /*
