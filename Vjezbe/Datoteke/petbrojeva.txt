@@ -1,0 +1,10 @@
+Upis 1. broja: 1
+Upis kvadrata 1. broja: 1
+Upis 2. broja: 2
+Upis kvadrata 2. broja: 4
+Upis 3. broja: 3
+Upis kvadrata 3. broja: 9
+Upis 4. broja: 4
+Upis kvadrata 4. broja: 16
+Upis 5. broja: 5
+Upis kvadrata 5. broja: 25
