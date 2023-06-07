@@ -1,0 +1,4 @@
+Proizvod parnih brojeva u intervalu: 8
+Broj clanova niza: 5
+Clanovi niza u intervalu:
+1 2 3 4 5 
