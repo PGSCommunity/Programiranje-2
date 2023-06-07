@@ -1,8 +1,15 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int main() {
-
+    ifstream brojevi("brojevi.txt");
+    if(!brojevi) {
+        cout << "Ulaz u datoteku nije uspjelo!\n";
+    } else {
+        int broj;
+        while(brojevi >> broj) cout << broj << " ";
+    }
     return 0;
 }
 /*
