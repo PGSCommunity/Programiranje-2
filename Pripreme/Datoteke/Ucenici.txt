@@ -1,0 +1,28 @@
+Upis podataka 1. ucenika:
+Ime: anin Sadzak
+Ocjena iz programiranja: 5
+
+Upis podataka 2. ucenika:
+Ime: Sara Novakovic
+Ocjena iz programiranja: 4
+
+Upis podataka 3. ucenika:
+Ime: Adna Mujic
+Ocjena iz programiranja: 5
+
+Upis podataka 4. ucenika:
+Ime: Alem Saracevic
+Ocjena iz programiranja: 3
+
+Upis podataka 5. ucenika:
+Ime: Eldar Papic
+Ocjena iz programiranja: 2
+
+Upis podataka 6. ucenika:
+Ime: Amatullah Zulovic
+Ocjena iz programiranja: 5
+
+Upis podataka 7. ucenika:
+Ime: Luna Vuleta
+Ocjena iz programiranja: 4
+
