@@ -3,7 +3,24 @@
 using namespace std;
 
 int main() {
-
+    ifstream nizbrojeva("NizBrojeva.txt");
+    if(!nizbrojeva) {
+        cout << "Ulaz u datoteku nije uspjelo!\n";
+    } else {
+        int broj;
+        while(nizbrojeva >> broj) {
+            if(broj < 0) {
+                cout << broj << '\n';
+            }
+        }
+        nizbrojeva.close();
+        nizbrojeva.open("NizBrojeva.txt");
+        while(nizbrojeva >> broj) {
+            if(broj > 0) {
+                cout << broj << '\n';
+            }
+        }
+    }
     return 0;
 }
 /*
