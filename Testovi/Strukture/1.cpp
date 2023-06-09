@@ -1,8 +1,29 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+struct valjak {
+    float r;
+    float h;
+} v;
 
+const float PI = 3.14;
+
+valjak unosValjka() {
+    cout << "Unesite poluprecnik valjka!\n";
+    cin >> v.r;
+    cout << "Unesite visinu valjka!\n";
+    cin >> v.h;
+    return v;
+}
+
+float ispisReciprocnePovrsine(valjak v1) {
+    return 1 / (2 * v.r * PI * (v.r * v.h));
+}
+
+int main() {
+    valjak v1(unosValjka());
+
+    cout << "Reciprocna vrijednost povrsine valjka: " << ispisReciprocnePovrsine(v1);
     return 0;
 }
 /*
