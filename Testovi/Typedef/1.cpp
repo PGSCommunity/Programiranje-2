@@ -1,8 +1,19 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-int main() {
+typedef float varijabla;
 
+int main() {
+    varijabla w, z;
+    float x(0);
+    cout << "Unesite brojeve w i z!\n";
+    cin >> w >> z;
+
+    if(w > 2) x = (pow(z, 1/9)) / (abs(sin(z) - pow(w, 1/7)));
+    if(z < -2) x = (sqrt(w + z)) / abs(w - z);
+
+    cout << "Vrijednost x: " << x << '\n'; 
     return 0;
 }
 /*
